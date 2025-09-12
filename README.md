@@ -35,6 +35,7 @@
 
 ## 📂 Project Structure
 
+```text
 /public
 /src
 ├── assets/ # Images, icons, static assets
@@ -45,6 +46,7 @@ vite.config.js
 tailwind.config.js
 package.json
 README.md
+```
 
 ---
 
