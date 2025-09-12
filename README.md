@@ -38,7 +38,7 @@
 ```text
 /public
 /src
-├── assets/ # Images, icons, static assets
+├── assets/ # Images, icons, static assets -> Pulled from self hosted repository [https://github.com/apesconsole/apesconsole-assets]
 ├── components/ # Reusable UI bits (Nav, Footer, etc.)
 ├── pages/ # Sections e.g. Gallery, Videos, About, Contact
 └── styles/ # Tailwind config + custom CSS
