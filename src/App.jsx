@@ -248,7 +248,7 @@ export default function App() {
       {/* Landing */}
       <section className="h-screen flex flex-col justify-center items-center bg-gray-50 text-center p-6">
         <motion.img
-          src="https://apesconsole.github.io/apesconsole-assets/images/cover.jpg"
+          src="https://apesconsole.github.io/apesconsole-assets/images/cover.gif"
           alt="Featured painting"
           className="w-full max-w-5xl h-auto rounded-2xl shadow-2xl object-cover"
           initial={{ opacity: 0, scale: 0.95 }}
