@@ -59,5 +59,8 @@ git clone https://github.com/apesconsole/apesconsole-website.git
 cd apesconsole-website
 npm install
 npm run dev
+## Preview
+npm run preview
+## http://localhost:4173/apesconsole-website/
 
 ```
