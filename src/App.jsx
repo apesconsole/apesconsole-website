@@ -47,6 +47,9 @@ export default function App() {
       { src: "https://apesconsole.github.io/apesconsole-assets/images/artattack/34.jpeg"},
       { src: "https://apesconsole.github.io/apesconsole-assets/images/artattack/35.jpg"},
       { src: "https://apesconsole.github.io/apesconsole-assets/images/artattack/36.jpg"},
+      { src: "https://apesconsole.github.io/apesconsole-assets/images/artattack/37.jpg"},
+      { src: "https://apesconsole.github.io/apesconsole-assets/images/artattack/38.jpg"},
+      { src: "https://apesconsole.github.io/apesconsole-assets/images/artattack/39.jpg"},
     ],
     Couple: [
       { src: "https://apesconsole.github.io/apesconsole-assets/images/couple/1.jpg"},
