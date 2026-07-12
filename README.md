@@ -1,66 +1,55 @@
-# 🦍 Ape’s Console Website
+# 🦍 Ape's Console Website
 
-> “Boot sequence initiated … Welcome to the Apes Console digital frontier.”
+> A visual journal — photography, painting & film by Soumitra Nath.
 
----
-
-[![License: MIT](https://img.shields.io/badge/license-MIT-brightgreen?logo=opensource&logoColor=white&style=for-the-badge)](LICENSE)  
-[![Vite Version](https://img.shields.io/badge/Vite-^5.0-blue?logo=vite&logoColor=white&style=flat-square)](https://vitejs.dev/)  
-[![TailwindCSS](https://img.shields.io/badge/Tailwind-CSS-06B6D4?logo=tailwindcss&logoColor=white&style=flat-square)](https://tailwindcss.com/)  
-[![Deploy Status](https://img.shields.io/badge/GitHub‐Pages‐Active-green?logo=github&logoColor=white&style=flat-square)](https://github.com/apesconsole/apesconsole-website)
+A **static, dependency-free** portfolio: plain HTML, CSS and vanilla JavaScript.
+No build step, no framework. Live at **[www.apesconsole.com](https://www.apesconsole.com)**.
 
 ---
 
 ## 🚀 Features
 
-- Clean, minimalist dark UI with a console / hacker feel
-- Smooth hover & animation effects (scale / rotation) for nav elements
-- Gradient‐rich buttons / links for visual punch
-- Fully responsive: from mobile to ultra‐wide displays
-- Monospace / terminal style elements for authenticity
+- Dark, cinematic editorial design with bold Archivo / Space Mono type
+- Animated hero: a grayscale portrait strip that "paints itself to life" and cycles the collection
+- Filterable gallery with a smooth expand modal (lightbox)
+- Scroll-driven title split and a footer watermark that re-assembles
+- Fully responsive — phones, tablets, large & short screens
+- Respects `prefers-reduced-motion`
+
+Image/video assets are hosted in a separate repo:
+[apesconsole-assets](https://github.com/apesconsole/apesconsole-assets).
 
 ---
 
-## 🛠 Tech Stack
-
-| Layer      | Technology                 |
-| ---------- | -------------------------- |
-| Build Tool | Vite                       |
-| Styling    | Tailwind CSS               |
-| Animations | Framer-Motion (or similar) |
-| Components | React or JSX components    |
-| Hosting    | GitHub Pages               |
-
----
-
-## 📂 Project Structure
+## 📂 Project structure
 
 ```text
-/public
-/src
-├── assets/ [https://github.com/apesconsole/apesconsole-assets]
-├── components/ # Reusable UI bits (Nav, Footer, etc.)
-├── pages/ # Sections e.g. Gallery, Videos, About, Contact
-└── styles/ # Tailwind config + custom CSS
-vite.config.js
-tailwind.config.js
-package.json
-README.md
+index.html      # markup
+styles.css      # all styling
+app.js          # gallery, lightbox, hero animation, scroll effects
+CNAME           # custom domain (www.apesconsole.com)
+favicon.ico
+.github/workflows/deploy.yml   # copies these files to the gh-pages branch
 ```
 
 ---
 
-## 🖥 Getting Started
+## 🖥 Run locally
 
-Clone the repo, install dependencies, launch dev:
+No install needed — just serve the folder:
 
 ```bash
 git clone https://github.com/apesconsole/apesconsole-website.git
 cd apesconsole-website
-npm install
-npm run dev
-## Preview
-npm run preview
-## http://localhost:4173/apesconsole-website/
-
+python -m http.server 8080      # then open http://localhost:8080
 ```
+
+(or open `index.html` directly in a browser).
+
+---
+
+## 🌐 Deploy
+
+Pushing to **`master`** triggers `.github/workflows/deploy.yml`, which copies the
+site files to the **`gh-pages`** branch. GitHub Pages serves `gh-pages` at the
+custom domain. No manual build or upload required.

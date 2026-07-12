@@ -1,16 +1,8 @@
-# .gitignore for React + Vite + Tailwind project
+# Static site — no build. These are only leftovers from the old React setup.
 
-# Node dependencies
+# Old build / deps (safe to keep ignored)
 node_modules/
-
-# Build output
 dist/
-
-# Logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
 
 # IDE/editor folders
 .vscode/
@@ -22,14 +14,6 @@ pnpm-debug.log*
 .DS_Store
 Thumbs.db
 
-# Local env files
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-
-# Misc
+# Logs / misc
 *.log
 temp/
-
-package-lock.json
