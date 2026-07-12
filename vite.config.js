@@ -3,5 +3,6 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/apesconsole-website/", 
+  // Served from the custom domain (www.apesconsole.com) at the root, so base is "/".
+  base: "/",
 });
