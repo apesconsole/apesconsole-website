@@ -1,0 +1,26 @@
+# CODEOWNERS — who must review changes to matching paths.
+#
+# Owners are auto-requested for review on any PR that touches a matching
+# path. This only *enforces* review if the branch ruleset has
+# "Require review from Code Owners" enabled (Settings -> Rules -> Rulesets).
+# Later matches win, so put the most specific rules last.
+#
+# Owners must be GitHub users/teams with write access to this repo.
+# Replace @apesconsole below if you want a different handle or a team
+# (e.g. @apesconsole/maintainers).
+
+# Default owner for everything in the repo.
+*                       @apesconsole
+
+# Deploy pipeline and CI — changes here can affect the live site.
+/.github/                @apesconsole
+/.github/workflows/      @apesconsole
+
+# Core site files.
+/index.html              @apesconsole
+/app.js                  @apesconsole
+/styles.css              @apesconsole
+
+# SEO / crawler surface.
+/robots.txt              @apesconsole
+/sitemap.xml             @apesconsole
