@@ -1,22 +1,26 @@
 name: Deploy Portfolio to GitHub Pages
 
 # Static site — no build step. On every push to master, the site files are
-# copied into a clean folder and published to the gh-pages branch, which
-# GitHub Pages serves at the custom domain.
+# assembled into a clean folder and published via GitHub's native Pages
+# deployment (the "github-pages" environment). This never pushes to any
+# branch, so branch protection rulesets do not block deploys.
 on:
   push:
     branches: ["master"]
   workflow_dispatch: {}     # allow manual re-deploys from the Actions tab
 
+# Native Pages deploy needs pages:write + id-token:write; contents stays read-only.
 permissions:
-  contents: write           # allow GITHUB_TOKEN to push to gh-pages
+  contents: read
+  pages: write
+  id-token: write
 
 concurrency:
-  group: pages-deploy
+  group: pages
   cancel-in-progress: true
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -34,12 +38,25 @@ jobs:
             --exclude='README.md' \
             --exclude='.gitignore' \
             ./ ./_site/
+          # Preserve the custom domain for GitHub Pages.
+          echo "www.apesconsole.com" > _site/CNAME
           ls -la _site
 
-      - name: Publish to gh-pages
-        uses: peaceiris/actions-gh-pages@v4
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages
-          publish_dir: ./_site
-          cname: www.apesconsole.com
+          path: ./_site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
