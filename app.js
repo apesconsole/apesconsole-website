@@ -188,6 +188,22 @@ const categories = Object.keys(gallery);
 let currentCategory = categories[0];
 let currentIndex = 0;
 
+/* ---------- SEO: descriptive alt text ----------
+   Search engines and screen readers get a meaningful, keyword-bearing
+   subject per category instead of a bare "Artattack — 1". */
+const CATEGORY_ALT = {
+  Artattack: "Hand-drawn pencil portrait, fine-art drawing",
+  Couple: "Couple in love, fine-art couple photography",
+  Landscapes: "Landscape photography",
+  People: "Portrait photography of people",
+  "Film Photography": "35mm film photography",
+};
+function altFor(cat, idx) {
+  const subject = CATEGORY_ALT[cat] || cat;
+  return subject + " — " + (idx + 1) +
+    " · Ape's Console by Soumitra Nath, Bangalore, India";
+}
+
 /* ---------- Elements ---------- */
 const filtersEl  = document.getElementById("filters");
 const masonryEl  = document.getElementById("masonry");
@@ -233,7 +249,8 @@ function renderGallery() {
     const img = document.createElement("img");
     img.src = item.src;
     img.loading = "lazy";
-    img.alt = currentCategory + " " + (idx + 1);
+    img.decoding = "async";
+    img.alt = altFor(currentCategory, idx);
 
     const num = document.createElement("span");
     num.className = "tile-num";
@@ -275,7 +292,7 @@ function updateLightbox() {
   const items = gallery[currentCategory];
   const item = items[currentIndex];
   lbImg.src = item.src;
-  lbImg.alt = currentCategory + " " + (currentIndex + 1);
+  lbImg.alt = altFor(currentCategory, currentIndex);
   lbCaption.textContent =
     currentCategory + " — " + (currentIndex + 1) + " / " + items.length;
 }

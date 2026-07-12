@@ -1,0 +1,5 @@
+# Ape's Console — https://www.apesconsole.com
+User-agent: *
+Allow: /
+
+Sitemap: https://www.apesconsole.com/sitemap.xml

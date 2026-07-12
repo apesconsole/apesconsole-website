@@ -3,15 +3,91 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ape's Console</title>
+
+  <!-- ===== Primary SEO ===== -->
+  <title>Ape's Console — Photography, Painting &amp; Film by Soumitra Nath</title>
+  <meta name="description" content="Ape's Console is the portfolio of Soumitra Nath — a photographer and artist based in Bangalore, India. Fine-art photography of people in love, landscapes and portraiture, hand-drawn painting, and short films." />
+  <meta name="keywords" content="Ape's Console, Soumitra Nath, photographer, photography portfolio, Bangalore photographer, India photography, couple photography, portrait photography, landscape photography, film photography, portraiture, painting, pencil drawing, short films" />
+  <meta name="author" content="Soumitra Nath" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="theme-color" content="#0b0b0d" />
+  <link rel="canonical" href="https://www.apesconsole.com/" />
+
   <!-- Always (re)load at the very top, never restore the previous scroll position -->
   <script>if ("scrollRestoration" in history) history.scrollRestoration = "manual";</script>
-  <meta name="description" content="Ape's Console — photography &amp; art by Soumitra Nath. People in love, landscapes, portraiture and film." />
+
+  <!-- ===== Open Graph (Facebook, LinkedIn, WhatsApp…) ===== -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Ape's Console" />
+  <meta property="og:title" content="Ape's Console — Photography, Painting &amp; Film by Soumitra Nath" />
+  <meta property="og:description" content="Fine-art photography of people in love, landscapes and portraiture, hand-drawn painting, and short films by Soumitra Nath, based in Bangalore, India." />
+  <meta property="og:url" content="https://www.apesconsole.com/" />
+  <meta property="og:image" content="https://apesconsole.github.io/apesconsole-assets/images/ape.jpeg" />
+  <meta property="og:image:alt" content="Soumitra Nath — Ape's Console" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- ===== Twitter / X Card ===== -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Ape's Console — Photography, Painting &amp; Film by Soumitra Nath" />
+  <meta name="twitter:description" content="Fine-art photography of people in love, landscapes and portraiture, hand-drawn painting, and short films by Soumitra Nath, based in Bangalore, India." />
+  <meta name="twitter:image" content="https://apesconsole.github.io/apesconsole-assets/images/ape.jpeg" />
+  <meta name="twitter:image:alt" content="Soumitra Nath — Ape's Console" />
+
   <link rel="icon" href="favicon.ico" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://apesconsole.github.io" />
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- ===== Structured data (schema.org) ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://www.apesconsole.com/#website",
+        "url": "https://www.apesconsole.com/",
+        "name": "Ape's Console",
+        "description": "Photography, painting and film by Soumitra Nath.",
+        "inLanguage": "en",
+        "publisher": { "@id": "https://www.apesconsole.com/#person" }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://www.apesconsole.com/#person",
+        "name": "Soumitra Nath",
+        "alternateName": "Ape's Console",
+        "url": "https://www.apesconsole.com/",
+        "image": "https://apesconsole.github.io/apesconsole-assets/images/ape.jpeg",
+        "jobTitle": "Photographer & Artist",
+        "description": "Photographer and artist working in fine-art photography, portraiture, painting and short films.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Bangalore",
+          "addressCountry": "India"
+        },
+        "email": "mailto:apesconsole@gmail.com",
+        "knowsAbout": ["Photography", "Portraiture", "Landscape Photography", "Film Photography", "Painting", "Filmmaking"],
+        "sameAs": [
+          "https://instagram.com/apesconsole",
+          "https://github.com/apesconsole",
+          "https://www.linkedin.com/in/soumitra-nath-207a095a/"
+        ]
+      },
+      {
+        "@type": "ProfilePage",
+        "@id": "https://www.apesconsole.com/#profilepage",
+        "url": "https://www.apesconsole.com/",
+        "name": "Ape's Console — Photography, Painting & Film by Soumitra Nath",
+        "isPartOf": { "@id": "https://www.apesconsole.com/#website" },
+        "about": { "@id": "https://www.apesconsole.com/#person" },
+        "inLanguage": "en"
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -172,7 +248,8 @@
       <div class="about-media">
         <img
           src="https://apesconsole.github.io/apesconsole-assets/images/ape.jpeg"
-          alt="About Ape's Console" />
+          alt="Soumitra Nath, photographer and artist behind Ape's Console"
+          width="800" height="1000" loading="lazy" decoding="async" />
       </div>
     </div>
   </section>
