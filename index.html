@@ -1,13 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ape's Console</title>
-    <script type="module" crossorigin src="/assets/index-A_R_F7N2.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-C4awMKDu.css">
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ape's Console</title>
+  <!-- Always (re)load at the very top, never restore the previous scroll position -->
+  <script>if ("scrollRestoration" in history) history.scrollRestoration = "manual";</script>
+  <meta name="description" content="Ape's Console — photography &amp; art by Soumitra Nath. People in love, landscapes, portraiture and film." />
+  <link rel="icon" href="https://apesconsole.github.io/apesconsole-assets/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ===== Progress bar ===== -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ===== Header ===== -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <a href="#top" class="brand">
+        <span class="brand-badge">A</span>
+        <span class="brand-name">APESCONSOLE</span>
+      </a>
+
+      <nav class="nav-desktop" aria-label="Primary">
+        <a href="#gallery" class="nav-link"><span class="nav-ico" aria-hidden="true">◈</span> Gallery</a>
+        <a href="#videos"  class="nav-link"><span class="nav-ico" aria-hidden="true">▷</span> Videos</a>
+        <a href="#about"   class="nav-link"><span class="nav-ico" aria-hidden="true">◍</span> About</a>
+        <a href="#contact" class="nav-link"><span class="nav-ico" aria-hidden="true">✉</span> Contact</a>
+      </nav>
+
+      <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <div class="nav-mobile" id="navMobile">
+      <a href="#gallery" class="nav-link"><span class="nav-ico" aria-hidden="true">◈</span> Gallery</a>
+      <a href="#videos"  class="nav-link"><span class="nav-ico" aria-hidden="true">▷</span> Videos</a>
+      <a href="#about"   class="nav-link"><span class="nav-ico" aria-hidden="true">◍</span> About</a>
+      <a href="#contact" class="nav-link"><span class="nav-ico" aria-hidden="true">✉</span> Contact</a>
+    </div>
+  </header>
+
+  <!-- ===== Hero / Landing ===== -->
+  <section class="hero" id="top">
+    <div class="hero-media" aria-hidden="true">
+      <div class="hero-strip" id="heroStrip"></div>
+      <div class="hero-sheen" id="heroSheen"></div>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-reveal" id="heroReveal" aria-hidden="true"></div>
+    <div class="hero-content">
+      <p class="hero-kicker">// photography &nbsp;·&nbsp; painting &nbsp;·&nbsp; film</p>
+      <h1 class="hero-title" id="heroTitle"><span class="hero-seg">Ape&rsquo;s</span><span class="hero-seg">&nbsp;Con</span><span class="hero-seg">sole</span></h1>
+      <p class="hero-sub">People in love, borrowed landscapes and quiet portraits.</p>
+      <a href="#gallery" class="hero-cta">Enter the gallery <span aria-hidden="true">&rarr;</span></a>
+    </div>
+    <a href="#gallery" class="hero-scroll" aria-label="Scroll to gallery">
+      <span class="hero-scroll-dot"></span>
+    </a>
+
+    <div class="hero-controls">
+      <button id="heroShuffle" class="hero-ctrl" type="button">&#10534; Shuffle portraits</button>
+      <button id="heroMotion" class="hero-ctrl is-on" type="button">&#9680; Motion: on</button>
+    </div>
+  </section>
+
+  <!-- ===== Gallery ===== -->
+  <section id="gallery" class="section gallery">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">01 / Selected work</p>
+        <h2 class="section-title">Gallery</h2>
+      </div>
+      <div class="showing">Showing&nbsp; <span class="showing-cat" id="showingCat">Artattack</span>
+        <span class="showing-count" id="showingCount"></span>
+      </div>
+    </div>
+
+    <div class="filters" id="filters" role="tablist" aria-label="Gallery categories"></div>
+
+    <div class="masonry" id="masonry"></div>
+  </section>
+
+  <!-- ===== Lightbox ===== -->
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true">
+    <button class="lb-close" id="lbClose" aria-label="Close">&times;</button>
+    <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous">&#8249;</button>
+    <figure class="lb-figure">
+      <img class="lb-img" id="lbImg" src="" alt="" />
+      <figcaption class="lb-caption" id="lbCaption"></figcaption>
+    </figure>
+    <button class="lb-nav lb-next" id="lbNext" aria-label="Next">&#8250;</button>
+  </div>
+
+  <!-- ===== Videos ===== -->
+  <section id="videos" class="section videos">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">02 / Motion</p>
+        <h2 class="section-title">Videos</h2>
+      </div>
+    </div>
+
+    <div class="video-grid">
+      <article class="video-card">
+        <div class="video-frame">
+          <iframe
+            src="https://player.vimeo.com/video/138508241?h=d928510696"
+            frameborder="0"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowfullscreen
+            title="Varanasi"></iframe>
+        </div>
+        <h3 class="video-title">Varanasi - Moksha</h3>
+        <p class="video-desc">
+          Situated on the banks of river Ganga, Varanasi is considered as the gateway to Moksha (The end of the cycle of birth, death and re-birth). Legend has it that if the dead is cremated on the ghats of the Ganga at Varanasi the soul attains Moksha. The city is theatric, not only culturally but also visually. It is almost a living &amp; breathing museum.
+        </p>
+      </article>
+
+      <article class="video-card">
+        <div class="video-frame">
+          <iframe
+            src="https://player.vimeo.com/video/210157647?h=940b6a723e"
+            frameborder="0"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowfullscreen
+            title="Yosemite"></iframe>
+        </div>
+        <h3 class="video-title">Yosemite in Rain</h3>
+        <p class="video-desc">
+          With all my preconceived notion of Ansel's perspective of the Yosemite I arrived at Yosemite quite disappointed. The weather forecast broke my heart. I had made preparations for months in advance and traveled all across the continent to find Yosemite in Rain. Yet I went to the famous Tunnel View point and slowly parked my car in an empty parking lot deserted by other disappointed tourists. And just when I gave up all hope, Yosemite displayed itself with all its beauty.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== About ===== -->
+  <section id="about" class="section about">
+    <div class="about-grid">
+      <div class="about-text">
+        <p class="eyebrow">03 / Behind the lens</p>
+        <h2 class="section-title">About The Ape</h2>
+
+        <p class="body-p">
+          "What is Ape's Console ?" or "What does it mean ?"<br />
+          <strong>So here it goes :</strong> A very dear friend of mine coined the name Ape for me back in college and I fondly accepted not knowing that some day I would attribute it to my passion. Console came from the corner of a room I used to stay in and would spend hours together. It was almost meditating.
+          As an obvious outcome, these two phrases got together to name my work and call itself Ape's Console. I find it interesting and hope it would remain so for ever.
+        </p>
+
+        <p class="body-p">
+          <strong>STYLE OF WORK</strong><br />
+          I was pushed into photography by my friend/brother Agniva Chakraborty (https://www.agnivachakraborty.com), a brilliant photographer. Growing up in India had helped me with a taste for elaborate colors, customs, celebrations and specially Bollywood Cinema. I love watching beautifully choreographed songs/dance sequences which are very unique to our cinema and I do draw a lot of inspiration from them.
+          Though my work consists of extensive photography of people in love, some of my location search expeditions have taken me to amazing landscapes which made things all the more interesting.
+          In painting, I have mostly worked on portraiture. Recently I have been studying more detailed drawings, scaled to near exact photographs. I do colors at times but pen/pencil has been my all time favorite.
+          * I am thankful to all my friends who have helped me with the opportunity to experiment and honored me by sharing a few pieces of their time.
+        </p>
+
+        <p class="body-p">
+          <strong>COLLABORATE</strong><br />
+          I live and work mostly out of Bangalore, India and would love to collaborate with like-minded enthusiasts or someone who would be interested to get photographed in creative concepts. Feel free to reach out.
+        </p>
+      </div>
+
+      <div class="about-media">
+        <img
+          src="https://apesconsole.github.io/apesconsole-assets/images/ape.jpeg"
+          alt="About Ape's Console" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Contact ===== -->
+  <section id="contact" class="section contact">
+    <div class="contact-inner">
+      <div class="contact-left">
+        <p class="eyebrow">04 / Say hello</p>
+        <h2 class="section-title">Contact</h2>
+
+        <ul class="contact-list">
+          <li class="contact-row">
+            <span class="contact-ico ico-google" aria-hidden="true">G</span>
+            <a href="mailto:apesconsole@gmail.com">Collaborate / Questions / Get in touch</a>
+          </li>
+          <li class="contact-row">
+            <span class="contact-ico ico-insta" aria-hidden="true">◎</span>
+            <a href="https://instagram.com/apesconsole">Commissions / Notifications / DM / Subscribe</a>
+          </li>
+          <li class="contact-row">
+            <span class="contact-ico ico-github" aria-hidden="true">⌥</span>
+            <a href="https://github.com/apesconsole">Code / Collaborate / Experiment</a>
+          </li>
+          <li class="contact-row">
+            <span class="contact-ico ico-linkedin" aria-hidden="true">in</span>
+            <a href="https://www.linkedin.com/in/soumitra-nath-207a095a/">Solve Enterprise Problems / Hire</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="contact-watermark" aria-hidden="true"><span class="wm-seg">APES</span><span class="wm-seg">CON</span><span class="wm-seg">SOLE</span></div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="site-footer">
+    <span id="footYear">&copy; Ape's Console</span>
+    <span class="foot-meta">
+      <span class="dim">[ generated by </span>
+      <span class="accent-purple">Claude</span>
+      <span class="dim">| powered by </span>
+      <a href="https://github.com/apesconsole/apesconsole-website" target="_blank" rel="noopener noreferrer" class="accent-blue">GitHub</a>
+      <span class="dim">]</span>
+    </span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
 </html>
