@@ -4,6 +4,9 @@ on:
   push:
     branches: ["master"] # or your default branch
 
+permissions:
+  contents: write # allow GITHUB_TOKEN to push to the gh-pages branch
+
 jobs:
   build-deploy:
     runs-on: self-hosted
