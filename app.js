@@ -53,6 +53,11 @@ const gallery = {
     { src: ASSET + "/artattack/38.jpg" },
     { src: ASSET + "/artattack/39.jpg" },
     { src: ASSET + "/artattack/40.jpg" },
+    { src: ASSET + "/artattack/41.jpg" },
+    { src: ASSET + "/artattack/42.jpg" },
+    { src: ASSET + "/artattack/43.jpg" },
+    { src: ASSET + "/artattack/44.jpg" },
+    { src: ASSET + "/artattack/45.jpg" },
   ],
   Couple: [
     { src: ASSET + "/couple/1.jpg" },
