@@ -17,3 +17,8 @@ Thumbs.db
 # Logs / misc
 *.log
 temp/
+
+# Environment files
+.env
+.env.*
+!.env.example

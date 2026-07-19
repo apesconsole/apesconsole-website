@@ -85,6 +85,16 @@ const gallery = {
     { src: ASSET + "/couple/28.jpeg" },
     { src: ASSET + "/couple/29.jpeg" },
     { src: ASSET + "/couple/30.jpg" },
+    { src: ASSET + "/couple/31.jpg" },
+    { src: ASSET + "/couple/32.jpg" },
+    { src: ASSET + "/couple/33.jpg" },
+    { src: ASSET + "/couple/34.jpg" },
+    { src: ASSET + "/couple/35.jpg" },
+    { src: ASSET + "/couple/36.jpg" },
+    { src: ASSET + "/couple/37.jpg" },
+    { src: ASSET + "/couple/38.jpg" },
+    { src: ASSET + "/couple/39.jpg" },
+    { src: ASSET + "/couple/40.jpg" },
   ],
   Landscapes: [
     { src: ASSET + "/landscape/1.jpeg" },
@@ -126,6 +136,7 @@ const gallery = {
     { src: ASSET + "/landscape/37.jpg" },
     { src: ASSET + "/landscape/38.jpg" },
     { src: ASSET + "/landscape/39.jpg" },
+    { src: ASSET + "/landscape/40.jpg" },
   ],
   People: [
     { src: ASSET + "/people/1.jpg" },
@@ -164,6 +175,10 @@ const gallery = {
     { src: ASSET + "/people/34.jpg" },
     { src: ASSET + "/people/35.jpg" },
     { src: ASSET + "/people/36.jpg" },
+    { src: ASSET + "/people/37.jpg" },
+    { src: ASSET + "/people/38.jpg" },
+    { src: ASSET + "/people/39.jpg" },
+    { src: ASSET + "/people/40.jpg" },
   ],
   "Film Photography": [
     { src: ASSET + "/dark/1.jpg" },
@@ -182,6 +197,20 @@ const gallery = {
     { src: ASSET + "/dark/14.jpg" },
     { src: ASSET + "/dark/15.jpg" },
   ],
+  "Experiments": [
+    { src: ASSET + "/experiments/1.jpg" },
+    { src: ASSET + "/experiments/2.jpg" },
+    { src: ASSET + "/experiments/3.jpg" },
+    { src: ASSET + "/experiments/4.jpg" },
+    { src: ASSET + "/experiments/5.jpg" },
+    { src: ASSET + "/experiments/6.jpg" },
+    { src: ASSET + "/experiments/7.jpg" },
+    { src: ASSET + "/experiments/8.jpg" },
+    { src: ASSET + "/experiments/9.jpg" },
+    { src: ASSET + "/experiments/10.jpg" },
+    { src: ASSET + "/experiments/11.jpg" },
+    { src: ASSET + "/experiments/12.jpg" },
+  ],
 };
 
 const categories = Object.keys(gallery);
@@ -197,6 +226,7 @@ const CATEGORY_ALT = {
   Landscapes: "Landscape photography",
   People: "Portrait photography of people",
   "Film Photography": "35mm film photography",
+  Experiments: "Experimental photography, creative visual experiment",
 };
 function altFor(cat, idx) {
   const subject = CATEGORY_ALT[cat] || cat;
